@@ -1,13 +1,17 @@
 class Solution {
     public int[] twoSum(int[] nums, int target) {
-        Map<Integer,Integer> decisionMap = new HashMap<>();
-        for(int i=0;i<nums.length;i++){
-            int negation = target-nums[i];
-            if(decisionMap.containsKey(negation)){
-                return new int[]{decisionMap.get(negation),i};
+        Map<Integer, Integer> resultMap = new HashMap<>();
+
+        for (int i = 0; i < nums.length; i++) {
+            int minus = target - nums[i];
+
+            if (resultMap.containsKey(minus)) {
+                return new int[] { resultMap.get(minus), i };
             }
-            decisionMap.put(nums[i],i);
+
+            resultMap.put(nums[i], i);
         }
-        return new int[]{};
+
+        return new int[] {};
     }
 }
